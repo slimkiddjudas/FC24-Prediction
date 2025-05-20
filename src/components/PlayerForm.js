@@ -69,9 +69,18 @@ function PlayerForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Use positionValue, footValue, and workRateValue (numeric) for the model
-    const value = predictMarketValue(positionValue, footValue, workRateValue, attributeValues);
-    setPredictedValue(value);
+
+    // attributes listesindeki tüm alanları attributeValues'dan topla
+    const payload = {};
+    attributes.forEach(attr => {
+      payload[attr] = attributeValues[attr] !== undefined ? attributeValues[attr] : 0;
+    });
+
+    // Konsola gönderilecek veriyi yazdır
+    console.log('Gönderilecek veri:', payload);
+
+    // Şimdilik API'ye göndermeyi yoruma alabilirsiniz
+    // predictMarketValue(payload).then(setPredictedValue);
   };
 
   // Attributes with dropdown selectors

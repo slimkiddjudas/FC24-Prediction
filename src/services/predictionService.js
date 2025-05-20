@@ -1,16 +1,13 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.example.com/predict'; // Replace with your actual API endpoint
+const API_URL = process.env.REACT_APP_API;
 
-export const predictMarketValue = async (position, attributes) => {
+export const predictMarketValue = async (attributes) => {
   try {
-    const response = await axios.post(API_URL, {
-      position,
-      attributes,
-    });
-    return response.data; // Assuming the API returns the predicted market value in the response
+    const response = await axios.post(API_URL, attributes);
+    return response.data;
   } catch (error) {
     console.error('Error predicting market value:', error);
-    throw error; // Rethrow the error for further handling
+    throw error;
   }
 };

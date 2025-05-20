@@ -43,3 +43,8 @@ yarn.lock
 
 # System Files
 Thumbs.db
+
+#server
+server/male_players.csv
+server/saved_models
+server/api/__pycache__
