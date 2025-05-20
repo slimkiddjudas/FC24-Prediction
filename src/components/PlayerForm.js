@@ -258,7 +258,7 @@ function PlayerForm() {
         </button>
       </form>
       
-      {predictedValue && <ResultDisplay value={predictedValue} />}
+      {predictedValue && <ResultDisplay predictedValue={predictedValue} />}
     </div>
   );
 }
