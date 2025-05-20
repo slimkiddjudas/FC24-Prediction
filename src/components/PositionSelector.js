@@ -1,11 +1,10 @@
 import React from 'react';
-import { positionMapping, positionOptions } from '../constants/positionMapping';
+import { positionOptions } from '../constants/positionMapping';
 
 function PositionSelector({ selectedPosition, onPositionChange }) {
   const handleChange = (e) => {
     const position = e.target.value;
-    const positionValue = positionMapping[position];
-    onPositionChange(position, positionValue);
+    onPositionChange(position);
   };
 
   return (

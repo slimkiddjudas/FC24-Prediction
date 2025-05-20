@@ -17,28 +17,18 @@ function AttributeInput({ attribute, value, onChange }) {
     }
     // All other attributes
     else {
-      return { min: 50, max: 100, defaultValue: 55 };
+      return { min: 0, max: 100, defaultValue: 55 };
     }
   };
 
   const { min, max, defaultValue } = getAttributeProps(attribute);
-
+  
   const handleChange = (e) => {
-    let newValue = parseInt(e.target.value, 10);
-    
-    // Validate input is within range
-    if (isNaN(newValue)) {
-      newValue = defaultValue;
-    } else if (newValue < min) {
-      newValue = min;
-    } else if (newValue > max) {
-      newValue = max;
-    }
-    
-    onChange(newValue);
+    // String olarak değeri al, boş da olabilir
+    const inputValue = e.target.value;
+    onChange(inputValue);
   };
 
-  // Format attribute label for display
   const formatLabel = (attr) => {
     return attr
       .split('_')
@@ -47,17 +37,15 @@ function AttributeInput({ attribute, value, onChange }) {
   };
 
   return (
-    <div className="form-group">
-      <label htmlFor={attribute}>{formatLabel(attribute)}:</label>
+    <div className="form-group mb-3">
+      <label htmlFor={attribute} className="form-label">{formatLabel(attribute)}:</label>
       <input
         type="number"
         id={attribute}
-        value={value || ''}
+        value={value}
         onChange={handleChange}
-        min={min}
-        max={max}
-        placeholder={defaultValue}
         className="form-control"
+        placeholder={defaultValue.toString()}
       />
       <small className="form-text text-muted">Range: {min} - {max}</small>
     </div>

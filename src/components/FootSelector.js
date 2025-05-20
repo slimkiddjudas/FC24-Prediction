@@ -1,26 +1,25 @@
 import React from 'react';
-import { footMapping, footOptions } from '../constants/footMapping';
+import { footOptions } from '../constants/footMapping';
 
 function FootSelector({ selectedFoot, onFootChange }) {
   const handleChange = (e) => {
     const foot = e.target.value;
-    const footValue = foot ? footMapping[foot] : null;
-    onFootChange(foot, footValue);
+    onFootChange(foot);
   };
 
   return (
     <div className="form-group">
-      <label htmlFor="preferred_foot">Preferred Foot:</label>
-      <select 
-        id="preferred_foot" 
-        value={selectedFoot || ''} 
-        onChange={handleChange}
+      <label htmlFor="foot">Preferred Foot:</label>
+      <select
+        id="foot"
         className="form-control"
+        value={selectedFoot}
+        onChange={handleChange}
       >
-        <option value="">Select preferred foot</option>
-        {footOptions.map(foot => (
-          <option key={foot} value={foot}>
-            {foot}
+        <option value="">Select Foot</option>
+        {footOptions.map((option) => (
+          <option key={option} value={option}>
+            {option}
           </option>
         ))}
       </select>

@@ -1,26 +1,25 @@
 import React from 'react';
-import { workRateMapping, workRateOptions } from '../constants/workRateMapping';
+import { workRateOptions } from '../constants/workRateMapping';
 
 function WorkRateSelector({ selectedWorkRate, onWorkRateChange }) {
   const handleChange = (e) => {
     const workRate = e.target.value;
-    const workRateValue = workRate ? workRateMapping[workRate] : null;
-    onWorkRateChange(workRate, workRateValue);
+    onWorkRateChange(workRate);
   };
 
   return (
     <div className="form-group">
-      <label htmlFor="work_rate">Work Rate (Attack/Defense):</label>
-      <select 
-        id="work_rate" 
-        value={selectedWorkRate || ''} 
+      <label htmlFor="workRate">Work Rate:</label>
+      <select
+        id="workRate"
+        className="form-select"
+        value={selectedWorkRate}
         onChange={handleChange}
-        className="form-control"
       >
-        <option value="">Select work rate</option>
-        {workRateOptions.map(workRate => (
-          <option key={workRate} value={workRate}>
-            {workRate}
+        <option value="">Select Work Rate</option>
+        {workRateOptions.map((option) => (
+          <option key={option} value={option}>
+            {option}
           </option>
         ))}
       </select>
