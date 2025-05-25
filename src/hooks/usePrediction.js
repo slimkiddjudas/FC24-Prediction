@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import predictionService from '../services/predictionService';
+import predictionService from '../services/predictionService.js';
 
 const usePrediction = () => {
   const [position, setPosition] = useState('');
@@ -26,7 +26,7 @@ const usePrediction = () => {
       const value = await predictionService.predictMarketValue(position, attributes);
       setPredictedValue(value);
     } catch (err) {
-      setError('Error predicting market value');
+      setError('Error predicting market value', err);
     } finally {
       setLoading(false);
     }
