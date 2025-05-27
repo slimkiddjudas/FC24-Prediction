@@ -27,18 +27,12 @@ const Footer = () => {
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
               <a 
-                href="https://github.com/slimkiddjudas" 
-                className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-200"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a 
                 href="https://github.com/slimkiddjudas/FC24-Prediction" 
+                target='_blank'
                 className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-200"
                 aria-label="Code"
               >
-                <Code className="w-5 h-5" />
+                <Github className="w-5 h-5" />
               </a>
             </div>
           </div>
