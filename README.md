@@ -127,6 +127,7 @@ Before running the application, you need to train the machine learning models:
    
    # Start the FastAPI server
    uvicorn api.controller:app --reload --host 0.0.0.0 --port 5000
+   uvicorn server.api.controller:app --reload
    ```
    
    The API will be available at: `http://localhost:5000`
