@@ -68,7 +68,7 @@ fc24-prediction/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/fc24-prediction.git
+   https://github.com/slimkiddjudas/FC24-Prediction.git
    cd fc24-prediction
    ```
 
